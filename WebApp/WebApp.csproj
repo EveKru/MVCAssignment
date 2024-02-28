@@ -12,9 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\css\scss\components\" />
-    <Folder Include="wwwroot\css\scss\core\" />
-    <Folder Include="wwwroot\css\scss\sections\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
