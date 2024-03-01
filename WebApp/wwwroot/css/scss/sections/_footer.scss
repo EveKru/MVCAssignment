@@ -3,6 +3,11 @@ footer {
     @include text-m;
     color: $gray-600;
 
+    width: 100%; /* Take up the entire width of the viewport */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+    
+
     .container {
         text-align: center;
 

@@ -1,6 +1,11 @@
 header {
     padding: 15px 0;
 
+    width: 100%; /* Take up the entire width of the viewport */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+    
+
     .container {
         display: grid;
         align-items: center;
@@ -54,7 +59,7 @@ header {
             grid-area: mobile;
             display: block;
             padding-right: 1rem;
-            
+
             @include lg {
                 display: none;
             }

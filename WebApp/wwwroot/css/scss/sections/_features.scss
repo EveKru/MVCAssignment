@@ -1,5 +1,10 @@
 .features {
 
+    width: 100%; /* Take up the entire width of the viewport */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+    
+
     .container {
         text-align: center;
 
@@ -15,7 +20,8 @@
             align-items: center;
 
             .box {
-                background-color: #88759b66;
+                /*background-color: #75479a40 ;*/
+                background-color: #a7a7a728;
                 padding: 2rem;
                 border-radius: 25px;
 

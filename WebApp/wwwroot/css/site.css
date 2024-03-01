@@ -356,6 +356,9 @@ a:hover {
 
 header {
   padding: 15px 0;
+  width: 100%; /* Take up the entire width of the viewport */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  margin: 0 auto; /* Center the container horizontally */
 }
 header .container {
   display: grid;
@@ -424,6 +427,9 @@ footer {
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
   color: #9397AD;
+  width: 100%; /* Take up the entire width of the viewport */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  margin: 0 auto; /* Center the container horizontally */
 }
 footer .container {
   text-align: center;
@@ -438,13 +444,18 @@ footer .container .social-media {
 
 .showcase {
   display: flex;
+  width: 100%; /* Take up the entire width of the viewport */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  margin: 0 auto; /* Center the container horizontally */
 }
 .showcase .taskmaster-image {
   display: none;
 }
 @media screen and (min-width: 992px) {
   .showcase .taskmaster-image {
-    width: auto;
+    align-self: baseline;
+    overflow: hidden;
+    max-width: 100%;
     height: auto;
     display: block;
   }
@@ -453,6 +464,7 @@ footer .container .social-media {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 .showcase .container .content {
   text-align: center;
@@ -463,7 +475,7 @@ footer .container .social-media {
   .showcase .container .content {
     text-align: left;
     margin-top: 60px;
-    margin-left: 12rem;
+    margin-left: 6rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -481,7 +493,7 @@ footer .container .social-media {
 }
 @media screen and (min-width: 992px) {
   .showcase .container .content h6 {
-    padding-top: 10rem;
+    padding-top: 6rem;
     padding-bottom: 1rem;
   }
 }
@@ -490,6 +502,11 @@ footer .container .social-media {
   gap: 1rem;
 }
 
+.features {
+  width: 100%; /* Take up the entire width of the viewport */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  margin: 0 auto; /* Center the container horizontally */
+}
 .features .container {
   text-align: center;
 }
@@ -504,7 +521,8 @@ footer .container .social-media {
   align-items: center;
 }
 .features .container .tools-features .box {
-  background-color: rgba(136, 117, 155, 0.4);
+  /*background-color: #75479a40 ;*/
+  background-color: rgba(167, 167, 167, 0.1568627451);
   padding: 2rem;
   border-radius: 25px;
 }

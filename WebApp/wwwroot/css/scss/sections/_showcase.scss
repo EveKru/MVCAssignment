@@ -1,11 +1,18 @@
 .showcase {
     display: flex;
+   
+    width: 100%; /* Take up the entire width of the viewport */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+   
 
     .taskmaster-image {
         display: none;
 
         @media screen and (min-width: 992px) {
-            width: auto;
+            align-self: baseline;
+            overflow: hidden;
+            max-width: 100%;
             height: auto;
             display: block;
         }
@@ -16,6 +23,8 @@
         align-items: center;
         justify-content: center;
 
+        width:50%;
+
         .content {
             text-align: center;
             margin-top: 30px;
@@ -24,7 +33,7 @@
             @media screen and (min-width: 992px) {
                 text-align: left;
                 margin-top: 60px;
-                margin-left: 12rem;
+                margin-left: 6rem;
             }
 
             a {
@@ -43,7 +52,7 @@
                 padding-bottom: 1rem;
 
                 @media screen and (min-width: 992px) {
-                    padding-top: 10rem;
+                    padding-top: 6rem;
                     padding-bottom: 1rem;
                 }
             }
@@ -55,3 +64,4 @@
         }
     }
 }
+
