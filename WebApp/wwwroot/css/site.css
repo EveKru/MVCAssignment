@@ -408,6 +408,7 @@ header .container .account-buttons {
 header .container .btn-mobile {
   grid-area: mobile;
   display: block;
+  padding-right: 1rem;
 }
 @media (min-width: 992px) {
   header .container .btn-mobile {
@@ -433,4 +434,58 @@ footer .container .social-media {
   align-items: center;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+.showcase {
+  display: flex;
+}
+.showcase .taskmaster-image {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .showcase .taskmaster-image {
+    width: auto;
+    height: auto;
+    display: block;
+  }
+}
+.showcase .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.showcase .container .content {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+@media screen and (min-width: 992px) {
+  .showcase .container .content {
+    text-align: left;
+    margin-top: 60px;
+    margin-left: 12rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .showcase .container .content a {
+    width: 15rem;
+  }
+}
+.showcase .container .content p {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.showcase .container .content h6 {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 992px) {
+  .showcase .container .content h6 {
+    padding-top: 10rem;
+    padding-bottom: 1rem;
+  }
+}
+.showcase .container .content .brands {
+  display: flex;
+  gap: 1rem;
 }

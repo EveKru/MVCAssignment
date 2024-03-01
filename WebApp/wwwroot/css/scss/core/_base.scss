@@ -29,7 +29,3 @@ h6, .h6 { @include h6; }
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
-
-.container {
-    max-width: 80%;
-}
