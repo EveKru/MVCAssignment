@@ -1,0 +1,32 @@
+.features {
+
+    .container {
+        text-align: center;
+
+        #text {
+            padding-bottom: 2rem;
+        }
+
+        .tools-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+
+            .box {
+                background-color: #88759b66;
+                padding: 2rem;
+                border-radius: 25px;
+
+                img {
+                    padding-bottom: 1rem;
+                }
+            }
+
+            @media screen and (min-width: 992px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    }
+}
