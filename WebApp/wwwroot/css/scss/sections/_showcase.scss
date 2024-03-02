@@ -9,7 +9,7 @@
     .taskmaster-image {
         display: none;
 
-        @media screen and (min-width: 992px) {
+        @media screen and (min-width: 990px) {
             align-self: baseline;
             overflow: hidden;
             max-width: 100%;
@@ -27,7 +27,7 @@
 
         .content {
             text-align: center;
-            margin-top: 30px;
+            padding-top: 20px;
             margin-bottom: 100px;
 
             @media screen and (min-width: 992px) {

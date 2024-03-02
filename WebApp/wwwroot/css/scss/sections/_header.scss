@@ -1,16 +1,14 @@
-header {
+.header {
     padding: 15px 0;
-
     width: 100%; /* Take up the entire width of the viewport */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     margin: 0 auto; /* Center the container horizontally */
-    
 
     .container {
         display: grid;
         align-items: center;
-        grid-template-columns: 1fr auto;
-        grid-template-areas: "logo mobile";
+        grid-template-columns: 1fr auto auto;
+        grid-template-areas: "logo switch mobile" "menu menu menu" "buttons buttons buttons";
         gap: 40px;
 
         @include lg {
@@ -38,14 +36,13 @@ header {
 
         .btn-switch {
             grid-area: switch;
-            display: none;
-
-            @include lg {
+            /*display: none;*/
+            /*@include lg {
                 display: block;
-            }
+            }*/
         }
 
-        .account-buttons {
+        #account-buttons {
             grid-area: buttons;
             display: none;
             gap: 15px;
@@ -58,11 +55,43 @@ header {
         .btn-mobile {
             grid-area: mobile;
             display: block;
-            padding-right: 1rem;
 
             @include lg {
                 display: none;
             }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    #menu.visible {
+        display: grid;
+        border: 2px solid lightgrey;
+        border-radius: 25px;
+        padding: 2rem 10rem 2rem 10rem;
+        justify-content: center;
+        justify-self: center;
+        width: 90%;
+
+        a {
+            padding-right: 1rem;
+        }
+
+        @include lg {
+            display: none;
+        }
+    }
+
+    #account-buttons.visible {
+        display: grid;
+        width: 90%;
+        height: 7rem;
+        justify-self: center;
+
+        @include lg {
+            display: none;
         }
     }
 }
