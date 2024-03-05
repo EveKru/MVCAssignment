@@ -1,15 +1,5 @@
 .signup {
-    width: 100%; /* Take up the entire width of the viewport */
-    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 100%;
-
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-
 
         @media(min-width: 992px) {
             width: 65%;

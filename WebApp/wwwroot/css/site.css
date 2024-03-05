@@ -181,6 +181,10 @@ h6, .h6 {
   grid-template-rows: auto 1fr auto;
 }
 
+.error-message {
+  color: red;
+}
+
 a {
   line-height: 160%;
   font-weight: 400;
@@ -691,18 +695,6 @@ form span.field-validation-error {
   }
 }
 
-.signup {
-  width: 100%; /* Take up the entire width of the viewport */
-  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
-  margin: 0 auto; /* Center the container horizontally */
-  height: 100%;
-}
-.signup .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
 @media (min-width: 992px) {
   .signup .container {
     width: 65%;
@@ -745,4 +737,29 @@ form span.field-validation-error {
 }
 .signup .container form .content #form-submit {
   grid-area: submit;
+}
+
+@media (min-width: 992px) {
+  .signin .container {
+    width: 65%;
+  }
+}
+@media (min-width: 1200px) {
+  .signin .container {
+    width: 55%;
+  }
+}
+.signin .container form .content {
+  display: grid;
+  gap: 1rem;
+}
+.signin .container form .content a {
+  text-align: center;
+}
+.signin .container form .input-validation-error {
+  box-shadow: none;
+  color: black;
+}
+.signin .container form .input-validation-error::placeholder {
+  color: black;
 }

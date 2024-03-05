@@ -18,6 +18,27 @@ public class AuthController : Controller
         if (!ModelState.IsValid) {
             return View(model);
         }
-        else { return RedirectToAction("SignIn", "Auth"); }
+        else { return RedirectToAction("Account", "Index"); }
+    }
+
+    [HttpGet]
+    public IActionResult SignIn()
+    {
+        var model = new SignInModel();
+        return View(model);
+    }
+
+    [HttpPost]
+    public IActionResult SignIn(SignInModel model)
+    {
+        if (!ModelState.IsValid) 
+        {
+            model.ErrorMessage = "You must enter an email and password";
+            return View(model);
+        }
+        
+        // service if true return "redirecttoaction" else errormessage "incorrect email or password"
+        else { return RedirectToAction("Account", "Index"); }
     }
 }
+
