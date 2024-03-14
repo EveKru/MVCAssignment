@@ -1,0 +1,87 @@
+﻿@model AccountModel
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<section class="account-details">
+    <div class="container">
+        <aside>
+            <div class="profile">
+                <img src="@Model.DetailsInfoModel.ProfileImage" alt="" />
+                @* <img src="~/images/profileimage.svg" /> *@
+                <h5>@($"{Model.DetailsInfoModel.FirstName} {Model.DetailsInfoModel.LastName}")</h5>
+                <p>@Model.DetailsInfoModel.Email</p>
+            </div>
+            <nav>
+                <a class="btn-theme-s" asp-controller="Account" asp-action="Details"><i class="fa-solid fa-gear"></i><span>Account Details</span></a>
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-arrow-left"></i><span>Sign out</span></a>
+            </nav>
+        </aside>
+        <div class="content">
+            <div class="details-info">
+                <form method="post" asp-controller="Account" asp-action="DetailsInfo">
+                    <div id="text">
+                        <h2>Account Details</h2>
+                        <h5>Basic Info</h5>
+                    </div>
+                    <div class="form-1">
+                        <div id="form-firstname" class="input-group">
+                            <label asp-for="DetailsInfoModel.FirstName"></label>
+                            <span asp-validation-for="DetailsInfoModel.FirstName"></span>
+                            <input asp-for="DetailsInfoModel.FirstName"/>
+                        </div>
+                        <div id="form-lastname" class="input-group">
+                            <label asp-for="DetailsInfoModel.LastName"></label>
+                            <span asp-validation-for="DetailsInfoModel.LastName"></span>
+                            <input asp-for="DetailsInfoModel.LastName"/>
+                        </div>
+                        <div id="form-email" class="input-group">
+                            <label asp-for="DetailsInfoModel.Email"></label>
+                            <span asp-validation-for="DetailsInfoModel.Email"></span>
+                            <input asp-for="DetailsInfoModel.Email" />
+                        </div>
+                        <div id="form-phone" class="input-group">
+                            <label asp-for="DetailsInfoModel.Phone"></label>
+                            <input asp-for="DetailsInfoModel.Phone" />
+                        </div>
+                        <div id="form-bio" class="input-group">
+                            <label asp-for="DetailsInfoModel.Bio">Bio <span>(optional)</span></label>
+                            <textarea asp-for="DetailsInfoModel.Bio"></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn-gray" type="reset">Cancel</button>
+                            <button class="btn-theme" type="submit">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="adress-info">
+                <form method="post" asp-controller="Account" asp-action="AdressInfo">
+                    <h5>Adress</h5>
+                    <div class="form-2">
+                        <div id="adress-1" class="input-group">
+                            <label asp-for="AdressInfoModel.AdressLine_1"></label>
+                            <input asp-for="AdressInfoModel.AdressLine_1" />
+                        </div>
+                        <div id="adress-2" class="input-group">
+                            <label asp-for="AdressInfoModel.AdressLine_2">Second Adress <span>(optional)</span></label>
+                            <input asp-for="AdressInfoModel.AdressLine_2" />
+                        </div>
+                        <div id="postalcode" class="input-group">
+                            <label asp-for="AdressInfoModel.PostalCode"></label>
+                            <input asp-for="AdressInfoModel.PostalCode" />
+                        </div>
+                        <div id="city" class="input-group">
+                            <label asp-for="AdressInfoModel.City"></label>
+                            <input asp-for="AdressInfoModel.City" />
+                        </div>
+                        <div class="form-buttons">
+                            <button class="btn-gray" type="reset">Cancel</button>
+                            <button class="btn-theme" type="submit">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
