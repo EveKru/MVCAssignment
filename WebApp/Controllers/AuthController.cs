@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
+﻿using Infrastructure.Services;
+using Microsoft.AspNetCore.Mvc;
+using Infrastructure.Models;
 
 namespace WebApp.Controllers;
 
-public class AuthController : Controller
+public class AuthController(UserService userService) : Controller
 {
+    private readonly UserService _userService = userService;
+
+
     [HttpGet]
     public IActionResult SignUp()
     {
@@ -13,13 +17,17 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public IActionResult SignUp(SignUpModel model)
+    public async Task<IActionResult> SignUp(SignUpModel model)
     {
         if (!ModelState.IsValid) {
             return View(model);
         }
-        else { return RedirectToAction("Account", "Index"); }
+        else {
+            await _userService.CreateUserAsync(model);
+            return RedirectToAction("Details", "Account"); 
+        }
     }
+
 
     [HttpGet]
     public IActionResult SignIn()
@@ -29,16 +37,25 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public IActionResult SignIn(SignInModel model)
+    public async Task<IActionResult> SignIn(SignInModel model)
     {
         if (!ModelState.IsValid) 
         {
-            model.ErrorMessage = "You must enter an email and password";
+            model.ErrorMessage = "you must enter a email or password";
             return View(model);
         }
-        
-        // service if true return "redirecttoaction" else errormessage "incorrect email or password"
-        else { return RedirectToAction("Account", "Index"); }
+        else {
+            var result = await _userService.SignInUserAsync(model);
+            if (result != null)
+            {
+                return RedirectToAction("Details", "Account");
+            }
+            else
+            {
+                model.ErrorMessage = "Incorrect email or password";
+                return View(model);
+            }
+        }
     }
 }
 
