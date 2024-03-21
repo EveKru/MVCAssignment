@@ -523,10 +523,6 @@ form span.field-validation-error {
 }
 .header .container .btn-switch {
   grid-area: switch;
-  /*display: none;*/
-  /*@include lg {
-      display: block;
-  }*/
 }
 .header .container #account-buttons {
   grid-area: buttons;
@@ -537,30 +533,46 @@ form span.field-validation-error {
   .header .container #account-buttons {
     display: flex;
   }
+  .header .container #account-buttons p {
+    display: none;
+  }
 }
 .header .container .btn-mobile {
   grid-area: mobile;
   display: block;
+  z-index: 2;
 }
 @media (min-width: 992px) {
   .header .container .btn-mobile {
     display: none;
   }
 }
+.header .btn-mobile.active {
+  color: white;
+}
 .header .hide {
   display: none;
 }
 .header #menu.visible {
-  display: grid;
-  border: 2px solid lightgrey;
-  border-radius: 25px;
-  padding: 2rem 10rem 2rem 10rem;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2d3862;
   justify-content: center;
-  justify-self: center;
-  width: 90%;
+  align-items: start;
+  padding-top: 8rem;
+  z-index: 1;
 }
-.header #menu.visible a {
-  padding-right: 1rem;
+.header #menu.visible nav {
+  flex-direction: column;
+}
+.header #menu.visible nav a {
+  color: white;
+  display: block;
+  margin-bottom: 1rem;
 }
 @media (min-width: 992px) {
   .header #menu.visible {
@@ -568,13 +580,35 @@ form span.field-validation-error {
   }
 }
 .header #account-buttons.visible {
-  display: grid;
-  width: 90%;
-  height: 7rem;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 9rem;
   justify-self: center;
+  z-index: 2;
+}
+.header #account-buttons.visible a {
+  height: 3rem;
+  width: 10rem;
 }
 @media (min-width: 992px) {
   .header #account-buttons.visible {
+    display: none;
+  }
+}
+.header #account-buttons.visible p {
+  z-index: 2;
+  color: #bfb8b8;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  .header #account-buttons.visible p {
     display: none;
   }
 }

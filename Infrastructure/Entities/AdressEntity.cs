@@ -4,7 +4,7 @@ namespace Infrastructure.Entities;
 
 public class AdressEntity
 {
-    public int UserId { get; set; }
+    public string UserId { get; set; } = null!;
     public UserEntity User { get; set; } = null!;
 
     [Key]

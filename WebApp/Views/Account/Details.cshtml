@@ -1,4 +1,5 @@
-﻿@model AccountModel
+﻿@using System.Security.Claims
+@model AccountModel
 @{
     ViewData["Title"] = "Account Details";
 }
@@ -8,9 +9,8 @@
         <aside>
             <div class="profile">
                 <img src="@Model.DetailsInfoModel.ProfileImage" alt="" />
-                @* <img src="~/images/profileimage.svg" /> *@
-                <h5>@($"{Model.DetailsInfoModel.FirstName} {Model.DetailsInfoModel.LastName}")</h5>
-                <p>@Model.DetailsInfoModel.Email</p>
+                <h5>@($"{Model.User.FirstName} {Model.User.LastName}")</h5>
+                <p>@Model.User.Email</p>
             </div>
             <nav>
                 <a class="btn-theme-s" asp-controller="Account" asp-action="Details"><i class="fa-solid fa-gear"></i><span>Account Details</span></a>
