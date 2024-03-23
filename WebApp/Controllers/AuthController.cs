@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Factories;
+using WebApp.ViewModels.Authentication;
 
 namespace WebApp.Controllers;
 

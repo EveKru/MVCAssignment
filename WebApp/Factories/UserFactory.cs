@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Entities;
-using WebApp.Models;
 using System.Diagnostics;
+using WebApp.ViewModels.Authentication;
 
 namespace Infrastructure.Factories;
 

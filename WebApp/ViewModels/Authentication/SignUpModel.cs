@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WebApp.Helpers;
 
-namespace WebApp.Models;
+namespace WebApp.ViewModels.Authentication;
 
 public class SignUpModel
 {
@@ -20,7 +20,7 @@ public class SignUpModel
     [Required(ErrorMessage = "Enter a valid email adress")]
     public string Email { get; set; } = null!;
 
-    [DataType(DataType.Password)] 
+    [DataType(DataType.Password)]
     [Display(Name = "Password", Prompt = "Enter your password")]
     [Required(ErrorMessage = "Enter a valid password")]
     public string Password { get; set; } = null!;

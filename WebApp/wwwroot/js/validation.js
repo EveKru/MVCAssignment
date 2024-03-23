@@ -51,7 +51,7 @@ const passwordValidator = (element) => {
         formErrorHandler(element, compareValidator(element.value, document.getElementsByName(element.dataset.valEqualtoOther.replace('*.', ''))[0].value));
     }
     else {
-        const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        const regEx = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         formErrorHandler(element, regEx.test(element.value))
     }
 };

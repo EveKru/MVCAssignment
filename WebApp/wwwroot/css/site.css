@@ -902,7 +902,7 @@ form span.field-validation-error {
 .account-details .container .content .details-info .form-1 #form-bio {
   grid-area: bio;
 }
-.account-details .container .content .details-info .form-1 #form-bio span {
+.account-details .container .content .details-info .form-1 span {
   color: gray;
   font-weight: 400;
 }

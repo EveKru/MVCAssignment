@@ -83,7 +83,8 @@ namespace Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AdressLine_1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AdressLine_2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -123,8 +124,8 @@ namespace Infrastructure.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -168,8 +169,8 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

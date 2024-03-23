@@ -1,17 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models
+namespace WebApp.ViewModels.Account
 {
     public class AccountAdressModel
     {
         [DataType(DataType.Text)]
-        [Display(Name = "Adress", Prompt = "Enter your adress")]
+        [Display(Name = "Adress line 1", Prompt = "Enter your adress line")]
         [Required(ErrorMessage = "Required")]
         public string AdressLine_1 { get; set; } = null!;
 
         [DataType(DataType.Text)]
-        [Display(Name = "Second adress", Prompt = "Enter your second adress")]
-        public string? AdressLine_2{ get; set; }
+        [Display(Name = "Adress line 2", Prompt = "Enter your second adress line")]
+        public string? AdressLine_2 { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Postal code", Prompt = "Enter your postal code")]
