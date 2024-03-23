@@ -48,13 +48,13 @@ const emailValidator = (element) => {
 
 const passwordValidator = (element) => {
     if (element.dataset.valEqualtoOther !== undefined) {
-        formErrorHandler(element, compareValidator(element.value, document.getElementsByName(element.dataset.valEqualtoOther.replace('*.', ''))[0].value))
+        formErrorHandler(element, compareValidator(element.value, document.getElementsByName(element.dataset.valEqualtoOther.replace('*.', ''))[0].value));
     }
     else {
-        const regEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+        const regEx = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         formErrorHandler(element, regEx.test(element.value))
     }
-}
+};
 
 const checkboxValidator = (element) => {
     formErrorHandler(element, checkedValidator(element))
@@ -87,4 +87,3 @@ inputs.forEach(input => {
         }
     }
 })
-

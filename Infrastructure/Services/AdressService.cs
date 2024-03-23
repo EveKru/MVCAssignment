@@ -1,23 +1,44 @@
-﻿//using Infrastructure.Entities;
-//using Infrastructure.Repositories;
-//using System.Diagnostics;
-//using Infrastructure.Models;
+﻿using Infrastructure.Entities;
+using Infrastructure.Repositories;
+using System.Diagnostics;
 
-//namespace Infrastructure.Services;
+namespace Infrastructure.Services;
 
-//public class AdressService(AdressRepository repository)
-//{
-    //    private readonly AdressRepository _adressRepository = repository;
+public class AdressService(AdressRepository repository)
+{
+    private readonly AdressRepository _adressRepository = repository;
 
-    //    public async Task<AdressEntity> GetOrCreateAdressAsync()
-    //    {
-    //        try
-    //        {
-    //            var adressEntity = await _adressRepository.GetOneAsync(x => x.StreetName == adressModel.StreetName && x.City == adressModel.City && x.PostalCode == adressModel.PostalCode);
-    //            adressEntity ??= await _adressRepository.CreateOneAsync(new AdressEntity { StreetName = adressModel.StreetName, PostalCode = adressModel.PostalCode, City = adressModel.City});
-    //            return adressEntity!;
-    //        }
-    //        catch (Exception ex) { Debug.WriteLine(ex); }
-    //        return null!;
-    //    }
-//}
+    public async Task<AdressEntity> GetAdressAsync(string UserId)
+    {
+        try
+        {
+            var adressEntity = await _adressRepository.GetOneAsync(x => x.UserId == UserId);
+            return adressEntity!;
+        }
+        catch (Exception ex) { Debug.WriteLine(ex); }
+        return null!;
+    }
+
+    public async Task<bool> CreateAdressAsync(AdressEntity adressEntity)
+    {
+        try
+        {
+            var adress = await _adressRepository.CreateOneAsync(adressEntity);
+            return true;
+        }
+        catch (Exception ex) { Debug.WriteLine(ex); }
+        return false!;
+    }
+
+    public async Task<bool> UpdateAdressAsync(AdressEntity adressEntity)
+    {
+        try
+        {
+            var exists = await _adressRepository.UpdateOneAsync(x => x.UserId == adressEntity.UserId, adressEntity);
+            return true;
+        }
+        catch (Exception ex) { Debug.WriteLine(ex); }
+        return false!;
+    }
+
+}

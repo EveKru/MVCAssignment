@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Infrastructure.Models;
+namespace WebApp.ViewModels.Account;
 
 public class AccountDetailsModel
 {
@@ -20,14 +20,10 @@ public class AccountDetailsModel
     public string Email { get; set; } = null!;
 
     [DataType(DataType.PhoneNumber)]
-    [Display(Name = "Phone number", Prompt = "Enter your phone number")]
-    [Required(ErrorMessage = "Required")]
-    public string Phone { get; set; } = null!;
+    [Display(Name = "Phone", Prompt = "Enter your phone number")]
+    public string? Phone { get; set; } = null!;
 
     [Display(Name = "Bio", Prompt = "Add a short bio...")]
     [DataType(DataType.MultilineText)]
     public string? Bio { get; set; }
-
-    [DataType(DataType.ImageUrl)]
-    public string? ProfileImage { get; set; }
 }

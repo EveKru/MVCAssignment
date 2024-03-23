@@ -6,6 +6,10 @@
 <section class="signup">
     <div class="container">
         <form method="post" asp-controller="Auth" asp-action="SignUp" novalidate>
+            <div class="error-message">
+                @Html.Raw(ViewData.ModelState["AlreadyExists"]?.Errors.First().ErrorMessage)
+                @Html.Raw(ViewData.ModelState["Error"]?.Errors.First().ErrorMessage)
+            </div>
             <h1>Create Account</h1>
             <p>Already have an account? <a asp-action="SignIn">Sign in here</a></p>
             <div class="content">
@@ -24,7 +28,7 @@
                     <span asp-validation-for="Email"></span>
                     <input asp-for="Email"/>
                 </div>
-                <div id="form.password" class="input-group">
+                <div id="form-password" class="input-group">
                     <label asp-for="Password"></label>
                     <span asp-validation-for="Password"></span>
                     <input asp-for="Password"/>
@@ -49,6 +53,6 @@
     </div>
 </section>
 
-@await Html.PartialAsync("~/Views/Shared/Partials/_ValidationScriptPartial.cshtml")
+@* @await Html.PartialAsync("~/Views/Shared/Partials/_ValidationScriptPartial.cshtml") *@
 
-@* <partial name="~/Views/Shared/Partials/_ValidationScriptPartial.cshtml" /> *@
+<partial name="~/Views/Shared/Partials/_ValidationScriptPartial.cshtml" />

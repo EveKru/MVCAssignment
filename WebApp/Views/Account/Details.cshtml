@@ -1,4 +1,5 @@
-﻿@model AccountModel
+﻿@using System.Security.Claims
+@model AccountModel
 @{
     ViewData["Title"] = "Account Details";
 }
@@ -7,10 +8,9 @@
     <div class="container">
         <aside>
             <div class="profile">
-                <img src="@Model.DetailsInfoModel.ProfileImage" alt="" />
-                @* <img src="~/images/profileimage.svg" /> *@
-                <h5>@($"{Model.DetailsInfoModel.FirstName} {Model.DetailsInfoModel.LastName}")</h5>
-                <p>@Model.DetailsInfoModel.Email</p>
+                <img src="@Model.ProfileInfoModel.ProfileImage" alt="" />
+                <h5>@($"{Model.ProfileInfoModel.FirstName} {Model.ProfileInfoModel.LastName}")</h5>
+                <p>@Model.ProfileInfoModel.Email</p>
             </div>
             <nav>
                 <a class="btn-theme-s" asp-controller="Account" asp-action="Details"><i class="fa-solid fa-gear"></i><span>Account Details</span></a>
@@ -19,10 +19,13 @@
         </aside>
         <div class="content">
             <div class="details-info">
-                <form method="post" asp-controller="Account" asp-action="DetailsInfo">
+                <form method="post" asp-controller="Account" asp-action="Details">
                     <div id="text">
                         <h2>Account Details</h2>
                         <h5>Basic Info</h5>
+                        <div class="error-message">
+                           @Html.Raw(ViewData.ModelState["Error"]?.Errors.First().ErrorMessage)
+                        </div>
                     </div>
                     <div class="form-1">
                         <div id="form-firstname" class="input-group">
@@ -41,7 +44,7 @@
                             <input asp-for="DetailsInfoModel.Email" />
                         </div>
                         <div id="form-phone" class="input-group">
-                            <label asp-for="DetailsInfoModel.Phone"></label>
+                            <label asp-for="DetailsInfoModel.Phone">Phone <span>(optional)</span></label>
                             <input asp-for="DetailsInfoModel.Phone" />
                         </div>
                         <div id="form-bio" class="input-group">
@@ -56,24 +59,30 @@
                 </form>
             </div>
             <div class="adress-info">
-                <form method="post" asp-controller="Account" asp-action="AdressInfo">
+                <form method="post" asp-controller="Account" asp-action="Details">
                     <h5>Adress</h5>
+                    <div class="error-message">
+                        @Html.Raw(ViewData.ModelState["IncorrectValues"]?.Errors.First().ErrorMessage)
+                    </div>
                     <div class="form-2">
                         <div id="adress-1" class="input-group">
                             <label asp-for="AdressInfoModel.AdressLine_1"></label>
                             <input asp-for="AdressInfoModel.AdressLine_1" />
+                            <span asp-validation-for="AdressInfoModel.AdressLine_1"></span>
                         </div>
                         <div id="adress-2" class="input-group">
-                            <label asp-for="AdressInfoModel.AdressLine_2">Second Adress <span>(optional)</span></label>
+                            <label asp-for="AdressInfoModel.AdressLine_2">Adress line 2 <span>(optional)</span></label>
                             <input asp-for="AdressInfoModel.AdressLine_2" />
                         </div>
                         <div id="postalcode" class="input-group">
                             <label asp-for="AdressInfoModel.PostalCode"></label>
                             <input asp-for="AdressInfoModel.PostalCode" />
+                            <span asp-validation-for="AdressInfoModel.PostalCode"></span>
                         </div>
                         <div id="city" class="input-group">
                             <label asp-for="AdressInfoModel.City"></label>
                             <input asp-for="AdressInfoModel.City" />
+                            <span asp-validation-for="AdressInfoModel.City"></span>
                         </div>
                         <div class="form-buttons">
                             <button class="btn-gray" type="reset">Cancel</button>
@@ -85,3 +94,5 @@
         </div>
     </div>
 </section>
+
+@* <partial name="~/Views/Shared/Partials/_ValidationScriptPartial.cshtml" /> *@

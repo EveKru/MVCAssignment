@@ -1,19 +1,25 @@
-﻿using Infrastructure.Services;
-using Microsoft.AspNetCore.Mvc;
-using Infrastructure.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Infrastructure.Entities;
+using Microsoft.EntityFrameworkCore;
+using Infrastructure.Factories;
+using WebApp.ViewModels.Authentication;
 
 namespace WebApp.Controllers;
 
-public class AuthController(UserService userService) : Controller
+public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
 {
-    private readonly UserService _userService = userService;
-
+    private readonly UserManager<UserEntity> _userManager = userManager;
+    private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
     [HttpGet]
     public IActionResult SignUp()
     {
-        var model = new SignUpModel();
-        return View(model);
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Details", "Account");
+        }
+        return View(new SignUpModel());
     }
 
     [HttpPost]
@@ -23,17 +29,48 @@ public class AuthController(UserService userService) : Controller
             return View(model);
         }
         else {
-            await _userService.CreateUserAsync(model);
-            return RedirectToAction("Details", "Account"); 
+            var exists = await _userManager.Users.AnyAsync(x => x.Email == model.Email);
+            if (exists)
+            {
+                ModelState.AddModelError("AlreadyExists", "User with the same email already exists"); 
+                return View(model);
+            }
+            else
+            {
+                var userEntity = UserFactory.Create(model);
+                var result = await _userManager.CreateAsync(userEntity, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("SignIn");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("Error", error.Description);
+                    }
+                    return View(model);
+                }
+
+                //var result = await _userManager.CreateAsync(userEntity, model.Password);
+                //if (result.Succeeded)
+                //{
+                //    return RedirectToAction("SignIn");
+                //}
+                //ModelState.AddModelError("Error", "Something went wrong");
+                //return View(model);
+            }
         }
     }
-
 
     [HttpGet]
     public IActionResult SignIn()
     {
-        var model = new SignInModel();
-        return View(model);
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Details", "Account");
+        }
+        return View(new SignInModel());
     }
 
     [HttpPost]
@@ -45,8 +82,9 @@ public class AuthController(UserService userService) : Controller
             return View(model);
         }
         else {
-            var result = await _userService.SignInUserAsync(model);
-            if (result != null)
+
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            if (result.Succeeded)
             {
                 return RedirectToAction("Details", "Account");
             }
@@ -56,6 +94,14 @@ public class AuthController(UserService userService) : Controller
                 return View(model);
             }
         }
+    }
+
+    [HttpGet]
+    public new async Task<IActionResult> SignOut()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+
     }
 }
 

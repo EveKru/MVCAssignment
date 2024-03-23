@@ -1,38 +1,54 @@
 ﻿const toggleMenu = () => {
-    document.getElementById('menu').classList.toggle('hide');
-    document.getElementById('account-buttons').classList.toggle('hide');
+    const menu = document.getElementById('menu');
+    const accountButtons = document.getElementById('account-buttons');
+    const isMenuVisible = !menu.classList.contains('hide');
 
-    const isMenuVisible = !document.getElementById('menu').classList.contains('hide');
-    document.getElementById('menu').classList.toggle('visible', isMenuVisible);
-    document.getElementById('account-buttons').classList.toggle('visible', isMenuVisible);
+    menu.classList.toggle('hide');
+    accountButtons.classList.toggle('hide');
+    menu.classList.toggle('visible', isMenuVisible);
+    accountButtons.classList.toggle('visible', isMenuVisible);
+
+    if (isMenuVisible) {
+        disableScroll();
+    }
+    else {
+        enableScroll();
+    }
+
+    const btnMobile = document.querySelector('.btn-mobile');
+    btnMobile.classList.toggle('active', isMenuVisible);
+}
+
+const disableScroll = () => {
+    document.body.style.overflow = 'hidden';
+}
+
+const enableScroll = () => {
+    document.body.style.overflow = 'auto';
 }
 
 const checkScreenSize = () => {
+    const menu = document.getElementById('menu');
+    const accountButtons = document.getElementById('account-buttons');
 
     if (window.innerWidth >= 990) {
-        document.getElementById('menu').classList.remove('hide');
-        document.getElementById('account-buttons').classList.remove('hide');
-        document.getElementById('menu').classList.remove('visible');
-        document.getElementById('account-buttons').classList.remove('visible');
+        menu.classList.remove('hide');
+        accountButtons.classList.remove('hide');
+        menu.classList.remove('visible');
+        accountButtons.classList.remove('visible');
+        enableScroll();
     }
     else {
-        if (!document.getElementById('menu').classList.contains('hide')) {
-            document.getElementById('menu').classList.add('hide');
+        if (!menu.classList.contains('hide')) {
+            menu.classList.add('hide');
         }
-        if (!document.getElementById('account-buttons').classList.contains('hide')) {
-            document.getElementById('account-buttons').classList.add('hide');
+        if (!accountButtons.classList.contains('hide')) {
+            accountButtons.classList.add('hide');
         }
     }
 };
 
 window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
-
-
-
-
-
-
-
 
 

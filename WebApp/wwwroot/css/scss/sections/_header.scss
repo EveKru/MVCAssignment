@@ -36,10 +36,6 @@
 
         .btn-switch {
             grid-area: switch;
-            /*display: none;*/
-            /*@include lg {
-                display: block;
-            }*/
         }
 
         #account-buttons {
@@ -49,12 +45,17 @@
 
             @include lg {
                 display: flex;
+
+                p {
+                    display: none;
+                }
             }
         }
 
         .btn-mobile {
             grid-area: mobile;
             display: block;
+            z-index: 2;
 
             @include lg {
                 display: none;
@@ -62,21 +63,35 @@
         }
     }
 
+    .btn-mobile.active {
+        color: white;
+    }
+
     .hide {
         display: none;
     }
 
     #menu.visible {
-        display: grid;
-        border: 2px solid lightgrey;
-        border-radius: 25px;
-        padding: 2rem 10rem 2rem 10rem;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #2d3862;
         justify-content: center;
-        justify-self: center;
-        width: 90%;
+        align-items: start;
+        padding-top: 8rem;
+        z-index: 1;
 
-        a {
-            padding-right: 1rem;
+        nav {
+            flex-direction: column;
+
+            a {
+                color: white;
+                display: block;
+                margin-bottom: 1rem;
+            }
         }
 
         @include lg {
@@ -85,13 +100,36 @@
     }
 
     #account-buttons.visible {
-        display: grid;
-        width: 90%;
-        height: 7rem;
+        position: fixed;
+        bottom: 0;
+        padding-bottom: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 9rem;
         justify-self: center;
+        z-index: 2;
+
+        a {
+            height: 3rem;
+            width: 10rem;
+        }
 
         @include lg {
             display: none;
+        }
+
+        p {
+            z-index: 2;
+            color: #bfb8b8;
+            position: absolute;
+            bottom: 0;
+            padding-bottom: 1rem;
+
+            @include lg {
+                display: none;
+            }
         }
     }
 }
