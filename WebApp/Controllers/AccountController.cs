@@ -7,6 +7,7 @@ using Infrastructure.Services;
 
 namespace WebApp.Controllers;
 
+[Authorize]
 public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AdressService adressService) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
@@ -14,7 +15,6 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
 
     private readonly AdressService _adressService = adressService;
 
-    [Authorize]
     [HttpGet]
     public async Task<IActionResult> Details()
     {
