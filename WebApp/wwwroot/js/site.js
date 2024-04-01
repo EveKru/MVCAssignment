@@ -52,3 +52,13 @@ window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
 
 
+// Store the current scroll position before form submission
+window.onload = function() {
+    var scrollY = localStorage.getItem("scrollY");
+window.scrollTo(0, scrollY);
+};
+
+window.onbeforeunload = function() {
+    localStorage.setItem("scrollY", window.scrollY);
+};
+

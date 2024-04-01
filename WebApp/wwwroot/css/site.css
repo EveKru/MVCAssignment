@@ -185,6 +185,10 @@ h6, .h6 {
   color: red;
 }
 
+.success-message {
+  color: green;
+}
+
 a {
   line-height: 160%;
   font-weight: 400;
@@ -970,5 +974,147 @@ form span.field-validation-error {
 @media (min-width: 992px) {
   .account-details .container .content .adress-info .form-2 .form-buttons {
     justify-content: left;
+  }
+}
+
+.subscribe {
+  background-color: #F3F6FF;
+  margin-top: 4rem;
+}
+.subscribe .container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.subscribe .container form {
+  justify-content: center;
+  gap: 0.5rem;
+}
+.subscribe .container form .title {
+  display: flex;
+}
+.subscribe .container form .title h2 {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .title h2 {
+    text-align: left;
+  }
+}
+.subscribe .container form .title img {
+  display: none;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .title img {
+    display: flex;
+    padding-left: 2rem;
+  }
+}
+.subscribe .container form .newsletter-options {
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options {
+    display: flex;
+    width: 100%;
+  }
+}
+.subscribe .container form .newsletter-options h6 {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.subscribe .container form .newsletter-options h6 br {
+  display: none;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options h6 br {
+    display: initial;
+  }
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options h6 {
+    text-align: left;
+    padding-bottom: 0rem;
+  }
+}
+.subscribe .container form .newsletter-options .options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options .options {
+    padding-left: 4rem;
+    flex-direction: column;
+    gap: 0rem;
+    align-items: flex-start;
+  }
+}
+.subscribe .container form .newsletter-options .options .first-column {
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options .options .first-column {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.subscribe .container form .newsletter-options .options .first-column label {
+  font-weight: 400;
+}
+.subscribe .container form .newsletter-options .options .second-column {
+  gap: 2rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options .options .second-column {
+    display: flex;
+    flex-direction: row;
+    gap: 2.7rem;
+  }
+}
+.subscribe .container form .newsletter-options .options .second-column label {
+  font-weight: 400;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .newsletter-options .options .second-column #checkbox-podcast {
+    padding-left: 0.9rem;
+  }
+}
+.subscribe .container form .input {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .input {
+    flex-direction: row;
+  }
+}
+.subscribe .container form .input input {
+  width: 80%;
+  height: 3rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form .input input {
+    width: 100%;
+  }
+}
+.subscribe .container form .input button {
+  height: 3rem;
+  border: none;
+  width: 12rem;
+}
+.subscribe .container form p {
+  text-align: center;
+  padding-top: 1rem;
+}
+@media (min-width: 992px) {
+  .subscribe .container form p {
+    text-align: left;
   }
 }

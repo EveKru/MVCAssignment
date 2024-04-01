@@ -1,0 +1,58 @@
+﻿@model SubscribeModel
+
+<section class="subscribe">
+    <div class="container">
+        <form asp-action="Index" asp-controller="Home" method="post">
+            <div class="title">
+                <h2>Don't Want To Miss Anything?</h2>
+                <img src="images/arrows.svg" />
+            </div>
+            <div class="newsletter-options">
+                <h6>Sign Up For <br/> Newsletters </h6>
+                <div class="options">
+                    <div class="first-column">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="DailyNewsLetter" />
+                            <label asp-for="DailyNewsLetter"></label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="AdvertisingUpdates" />
+                            <label asp-for="AdvertisingUpdates"></label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="Weekinreview" />
+                            <label asp-for="Weekinreview"></label>
+                        </div>
+                    </div>
+                    <div class="second-column">
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="EventUpdates" />
+                            <label asp-for="EventUpdates"></label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" asp-for="StartupsWeekly" />
+                            <label asp-for="StartupsWeekly"></label>
+                        </div>
+                        <div id="checkbox-podcast">
+                            <input type="checkbox"asp-for="Podcasts" />
+                            <label asp-for="Podcasts"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span>
+                <div class="success-message">
+                    @Html.Raw(ViewData.ModelState["Success"]?.Errors.First().ErrorMessage)
+                </div>
+                <div class="error-message">
+                    @Html.Raw(ViewData.ModelState["Errors"]?.Errors.First().ErrorMessage)
+                </div>
+            </span>
+            <div class="input">
+                <input asp-for="Email"/>
+                <button class="btn-theme-s" type="submit">Subscribe*</button>
+            </div>
+            <p>*Yes, I agree to the <a href="link-to-terms">terms</a> and <a href="link-to-privacy-policy">privacy policy</a>.</p>
+        </form>
+    </div>
+</section>

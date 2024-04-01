@@ -1,0 +1,152 @@
+.subscribe {
+    background-color: #F3F6FF;
+    margin-top: 4rem;
+
+    .container {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        form {
+            justify-content: center;
+            gap: 0.5rem;
+
+            .title {
+                display: flex;
+
+                h2 {
+                    text-align: center;
+
+                    @media (min-width: 992px) {
+                        text-align: left;
+                    }
+                }
+
+                img {
+                    display: none;
+
+                    @media(min-width: 992px) {
+                        display: flex;
+                        padding-left: 2rem;
+                    }
+                }
+            }
+
+            .newsletter-options {
+                justify-content: center;
+                padding-top: 0.5rem;
+
+
+                @media(min-width: 992px) {
+                    display: flex;
+                    width: 100%;
+                }
+
+                h6 {
+                    text-align: center;
+                    padding-bottom: 1rem;
+
+                    br {
+                        display: none; 
+
+                        @media (min-width: 992px) {
+                            display: initial; 
+                        }
+                    }
+
+                    @media(min-width: 992px) {
+                        text-align: left;
+                        padding-bottom: 0rem;
+                    }
+                }
+
+
+                .options {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    gap: 2rem;
+
+
+                    @media(min-width: 992px) {
+                        padding-left: 4rem;
+                        flex-direction: column;
+                        gap: 0rem;
+                        align-items: flex-start;
+                    }
+
+                    .first-column {
+                        gap: 2rem;
+
+                        @media(min-width: 992px) {
+                            display: flex;
+                            flex-direction: row;
+                        }
+
+                        label {
+                            font-weight: 400;
+                        }
+                    }
+
+                    .second-column {
+                        gap: 2rem;
+
+                        @media(min-width: 992px) {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 2.7rem;
+                        }
+
+                        label {
+                            font-weight: 400;
+                        }
+
+                        #checkbox-podcast {
+
+                            @media(min-width: 992px) {
+                                padding-left: 0.9rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .input {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding-top: 1rem;
+
+                @media(min-width: 992px) {
+                    flex-direction: row;
+                }
+
+                input {
+                    width: 80%;
+                    height: 3rem;
+
+                    @media(min-width: 992px) {
+                        width: 100%;
+                    }
+                }
+
+                button {
+                    height: 3rem;
+                    border: none;
+                    width: 12rem;
+                }
+            }
+
+            p {
+                text-align: center;
+                padding-top: 1rem;
+
+                @media(min-width: 992px) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
