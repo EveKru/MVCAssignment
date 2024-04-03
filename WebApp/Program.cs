@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Add your services here...
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
 builder.Services.AddDefaultIdentity<UserEntity>( x =>
@@ -18,14 +19,20 @@ builder.Services.AddDefaultIdentity<UserEntity>( x =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Auth/SignIn"; // Set your custom login page route here
-    //time to be logged in
+    options.LoginPath = "/Auth/SignIn"; // login page route 
+    options.LogoutPath = "/Auth/SignOut"; // logout page route 
+
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); //time to be logged in
+    options.SlidingExpiration = true; // time reset when site rendering
+
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // for security
+    options.Cookie.HttpOnly = true; // for security
+
 });
 
 // services
 builder.Services.AddScoped<AdressService>();
 builder.Services.AddScoped<AdressRepository>();
-
 
 var app = builder.Build();
 
@@ -38,8 +45,6 @@ app.UseAuthorization();
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-
 
 app.MapControllerRoute(
     name: "default",
