@@ -56,6 +56,46 @@ namespace Infrastructure.Migrations
                     b.ToTable("Adresses");
                 });
 
+            modelBuilder.Entity("Infrastructure.Entities.CourseEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Discountprice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Hours")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsBestseller")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("LikesInNumbers")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LikesInProcent")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Originalprice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("Infrastructure.Entities.SubscriberEntity", b =>
                 {
                     b.Property<int>("Id")

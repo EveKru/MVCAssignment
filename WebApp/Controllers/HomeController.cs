@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net;
 using System.Text;
 using WebApp.ViewModels;
 
@@ -20,20 +21,43 @@ public class HomeController : Controller
             try
             {
                 using var http = new HttpClient();
+                var url = "https://localhost:7154/api/subscribers?key=YTBiYWU4MmQtOTU0Zi00OWU2LWJmYmItNWU3MWZmMTE1YTZk";
 
-                var content = new StringContent(JsonConvert.SerializeObject(subscribeModel), Encoding.UTF8, "application/json");
-                var respone = await http.PostAsync("https://localhost:7154/subscribers", content);
+                // Serialize subscribeModel to JSON
+                var json = JsonConvert.SerializeObject(subscribeModel);
+                // Create a StringContent object with JSON data
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                // Send POST request with JSON data
+                var response = await http.PostAsync(url, content);
 
-                if (respone.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     ModelState.AddModelError("Success", "You have been subscribed.");
                 }
-                if (respone.StatusCode == System.Net.HttpStatusCode.Conflict) 
+                else if (response.StatusCode == HttpStatusCode.Conflict)
                 {
                     ModelState.AddModelError("Errors", "You have already subscribed.");
                 }
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    ModelState.AddModelError("Errors", "Unauthorized. Please contact web admin");
+                }
+                else
+                {
+                    // Handle other status codes
+                    ModelState.AddModelError("Errors", $"Server returned status code: {(int)response.StatusCode} {response.ReasonPhrase}");
+                }
             }
-            catch { ModelState.AddModelError("Errors", "Unable to contact the server. Please try again later."); }
+            catch (HttpRequestException ex)
+            {
+                // Handle HTTP request exception
+                ModelState.AddModelError("Errors", $"HTTP request failed: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                ModelState.AddModelError("Errors", $"An error occurred: {ex.Message}");
+            }
         }
         else { ModelState.AddModelError("Errors", "Invalid Email"); }
         return View(subscribeModel);

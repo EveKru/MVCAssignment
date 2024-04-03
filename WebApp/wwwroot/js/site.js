@@ -51,14 +51,32 @@ const checkScreenSize = () => {
 window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
 
-
+// Help from ChatGPT heheh
 // Store the current scroll position before form submission
-window.onload = function() {
+window.onload = function () {
     var scrollY = localStorage.getItem("scrollY");
-window.scrollTo(0, scrollY);
+    console.log("Stored scroll position:", scrollY);
+    if (scrollY !== null) {
+        setTimeout(function () {
+            window.scrollTo(0, scrollY); // Scroll to the stored position
+        }, 0);
+        localStorage.removeItem("scrollY"); // Clear the stored position
+        console.log("Restored scroll position:", scrollY);
+    }
 };
 
-window.onbeforeunload = function() {
-    localStorage.setItem("scrollY", window.scrollY);
-};
+// Attach event listener to form submission
+document.addEventListener('submit', function (event) {
+    // Get the current scroll position
+    var currentScrollY = window.scrollY;
+    console.log("Current scroll position:", currentScrollY);
+
+    // Store the scroll position before the form is submitted
+    localStorage.setItem("scrollY", currentScrollY);
+});
+
+
+
+
+
 

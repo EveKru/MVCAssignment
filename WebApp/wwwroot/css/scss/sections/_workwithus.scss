@@ -1,0 +1,53 @@
+.WorkWithUs {
+    .container {
+        background-color: #F3F6FF;
+        margin-top: 4rem;
+        border-radius: 25px;
+
+        @media(min-width: 992px) {
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center; /* Horizontal centering */
+            align-items: center; /* Vertical centering */
+            text-align: center;
+            flex-direction: column;
+            padding: 2rem;
+
+
+            @media(min-width: 992px) {
+                padding-left: 5rem;
+                align-items: start;
+                text-align: left;
+            }
+
+            @media screen and (min-width: 1200px) {
+                padding-left: 7rem;
+            }
+
+            h2 {
+                padding-bottom: 1rem;
+                width: 60%;
+
+                @media(min-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        img {
+            padding: 1rem 0rem 1rem 1rem;
+            display: none;
+
+            @media(min-width: 992px) {
+                display: block;
+            }
+
+            @media screen and (min-width: 1200px) {
+                padding-right: 2rem;
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@
 using Infrastructure.Entities;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Filters;
 
 namespace WebApi.Controllers
 {
@@ -12,6 +13,7 @@ namespace WebApi.Controllers
         private readonly SubscriberService _subscriberService = subscriberService;
 
         [HttpPost]
+        [ApiKey]
         public async Task<IActionResult> Create(SubscriberDto subscriberDto)
         {
             if (subscriberDto != null)
@@ -32,8 +34,8 @@ namespace WebApi.Controllers
         [HttpDelete("ByEmail")]
         public async Task<IActionResult> DeleteByEmail(string email)
         {
-            var result = await _subscriberService.GetSubscriberByEmailAsync(email);
-            if (result != null)
+            var subscriber = await _subscriberService.GetSubscriberByEmailAsync(email);
+            if (subscriber != null)
             {
                 await _subscriberService.DeleteSubscriberByEmailAsync(email);
                 return Ok();

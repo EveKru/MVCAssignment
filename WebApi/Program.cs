@@ -14,6 +14,8 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configura
 // my services
 builder.Services.AddScoped<SubscriberService>();
 builder.Services.AddScoped<SubscriberRepository>();
+builder.Services.AddScoped<CourseService>();
+builder.Services.AddScoped<CourseRepository>();
 
 var app = builder.Build();
 
