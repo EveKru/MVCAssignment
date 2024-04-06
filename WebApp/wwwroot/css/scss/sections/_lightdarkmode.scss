@@ -1,0 +1,63 @@
+.lightdarkmode {
+    display: flex;
+    position: relative;
+
+    .darkmode {
+        background-color: black;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        width: 100%;
+        height: auto;
+
+        #h2 {
+            color: white;
+            text-align: center;
+            font-size: 1.2rem !important;
+
+            @media(min-width: 768px) {
+                font-size: 1.6rem !important;
+            }
+
+            @media(min-width: 992px) {
+                font-size: 2rem !important;
+            }
+        }
+    }
+
+    .lightmode {
+        position: absolute;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        background-color: white;
+        width: 50%;
+        height: 100%;
+        z-index: 1;
+        right: 0;
+
+        #lightimage {
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    h2 {
+        text-align: left;
+        padding-bottom: 2rem;
+        font-size: 1.2rem !important;
+
+        @media(min-width: 768px) {
+            font-size: 1.6rem !important;
+        }
+
+        @media(min-width: 992px) {
+            font-size: 2rem !important;
+        }
+    }
+
+    img {
+        width: 60%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+}
