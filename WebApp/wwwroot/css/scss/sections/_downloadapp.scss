@@ -1,0 +1,62 @@
+.downloadapp {
+    background-color: #EFF2FC;
+
+    .container {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        padding: 4rem;
+
+        @media(min-width: 1200px) {
+            gap: 10rem;
+        }
+
+        #screens {
+            max-width: 50%;
+            height: auto;
+            display: none;
+
+            @media(min-width: 992px) {
+                display: block;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+
+            .app-store {
+                display: flex;
+                position: relative;
+
+                p {
+                    margin-bottom: 0rem;
+                }
+
+                #appstore {
+                    position: absolute;
+                    left: 15rem;
+                    bottom: 0.5rem;
+                }
+            }
+
+            .google-play {
+                display: flex;
+                position: relative;
+
+                p {
+                    margin-bottom: 0rem;
+                }
+
+                #google {
+                    position: absolute;
+                    left: 15rem;
+                    bottom: 0.5rem;
+                }
+            }
+        }
+    }
+}

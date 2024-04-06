@@ -1,10 +1,14 @@
 .showcase {
     display: flex;
-   
+    margin-top: -4rem;
+
     width: 100%; /* Take up the entire width of the viewport */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
-    margin: 0 auto; /* Center the container horizontally */
    
+    @media(min-width: 992px) {
+        margin-top: 1rem;
+    }
+
 
     .taskmaster-image {
         display: none;
@@ -22,8 +26,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        width:50%;
+        width: 50%;
 
         .content {
             text-align: center;
@@ -64,4 +67,3 @@
         }
     }
 }
-
