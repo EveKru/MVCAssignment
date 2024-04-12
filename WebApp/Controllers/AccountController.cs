@@ -4,14 +4,17 @@ using Infrastructure.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Infrastructure.Services;
+using System.Security.Claims;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApp.Controllers;
 
 [Authorize]
-public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AdressService adressService) : Controller
+public class AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AdressService adressService, IConfiguration configuration) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
+    private readonly IConfiguration _configuration = configuration;
 
     private readonly AdressService _adressService = adressService;
 
@@ -94,7 +97,7 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
                         var result = await _adressService.CreateAdressAsync(adress);
                         if (!result)
                         {
-                           ModelState.AddModelError("IncorrectValues", "Unable to save data.");
+                            ModelState.AddModelError("IncorrectValues", "Unable to save data.");
                         }
                     }
                 }
@@ -116,7 +119,8 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
         {
             FirstName = user!.FirstName,
             LastName = user.LastName,
-            Email = user.Email!
+            Email = user.Email!,
+            ProfileImage = user.ProfileImage,
         };
     }
 
@@ -152,6 +156,33 @@ public class AccountController(UserManager<UserEntity> userManager, SignInManage
             }
         }
         return new AccountAdressModel();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UploadImage(AccountModel model, IFormFile file)
+    {
+        var userEntity = await _userManager.GetUserAsync(User);
+        if (userEntity != null && file != null && file.Length != 0)
+        {
+            var fileName = $"p_{userEntity.Id}_{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), _configuration["FileUploadPath"]!, fileName);
+            using var fs = new FileStream(filePath, FileMode.Create);
+            await file.CopyToAsync(fs);
+
+            userEntity.ProfileImage = fileName;
+            var result = await _userManager.UpdateAsync(userEntity);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("ImageError", error.Description);
+                    return View(model);
+                }
+            }
+            else { return RedirectToAction("Details"); }
+        }
+        return View(model);
     }
 }
 

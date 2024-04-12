@@ -14,6 +14,9 @@ public class UserEntity : IdentityUser
     [ProtectedPersonalData] // nödvändigt??
     public string? Bio { get; set; }
 
+    [ProtectedPersonalData]
+    public string? ProfileImage { get; set; } = "avatar.jpg";
+
     public DateTime? Created { get; set; }
     public DateTime? Modified { get; set; }
 

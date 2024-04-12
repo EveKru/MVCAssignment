@@ -75,7 +75,19 @@ document.addEventListener('submit', function (event) {
     localStorage.setItem("scrollY", currentScrollY);
 });
 
-
+// primarly used for the change of the profileimage
+document.addEventListener('DOMContentLoaded', function () {
+    handleProfileImageUpload()
+})
+function handleProfileImageUpload() {
+    let uploader = document.querySelector('#fileUploader')
+    if (uploader != undefined) {
+        uploader.addEventListener('change', function () {
+            if (this.files.length > 0)
+                this.form.submit()
+        })
+    }
+}
 
 
 
