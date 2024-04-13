@@ -1,0 +1,21 @@
+#cookie-consent {
+    background-color: #EFF2FC;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    height: 7rem;
+    border-top: 1px solid gray;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        padding-top: 2.5rem; // align-items not working
+
+        button {
+            width: 20%;
+        }
+    }
+}
