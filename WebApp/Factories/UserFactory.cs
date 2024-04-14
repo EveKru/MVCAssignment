@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Entities;
 using System.Diagnostics;
+using WebApp.ViewModels.Account;
 using WebApp.ViewModels.Authentication;
 
 namespace Infrastructure.Factories;
@@ -26,4 +27,6 @@ public class UserFactory
         catch (Exception ex) { Debug.WriteLine(ex); }
         return null!;
     }
+
+
 }

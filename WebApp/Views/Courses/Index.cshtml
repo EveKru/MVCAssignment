@@ -1,15 +1,38 @@
-﻿@model IEnumerable<WebApp.ViewModels.CourseModel>
+﻿@model CourseIndexViewModel
 @{
     ViewData["Title"] = "Courses";
 }
 
 <section class="courses">
     <div class="container">
-        <h2 id="title">Courses</h2>
+        <div class="header">
+            <h1 id="title">Courses</h1>
+            <form class="filters">
+                <div class="input-select-group">
+                    <div class="select">
+                        <div class="selected">All Categories <span class="arrow">&#9660;</span> <!-- Downward arrow symbol --></div>
+                        <div class="select-options">
+                            <div class="option" data-value="all">All categories</div>
+                            @if (Model.Categories != null)
+                            {
+                                foreach (var category in Model.Categories)
+                                {
+                                    <div class="option" data-value="@category.CategoryName">@category.CategoryName</div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="input-search-group">
+                    <input id="searchQuery" name="searchQuery" placeholder="Search courses" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </form>
+        </div>
         <div class="items">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Courses!)
             {
-                <div class="course">
+                <div class="course" onclick="location.href='@Url.Action("Details", "Courses", new {id = item.Id})'">
                     @if (item.IsBestseller)
                     {
                         <div class="best-seller">
@@ -17,21 +40,22 @@
                         </div>
                     }
                     <img class="course-image" src="/images/@item.Image" alt="" />
+                    <a class="bookmark" asp-action="something" asp-controller="something" asp-route-id="@item.Id"><i class="fa-regular fa-bookmark"></i></a>
                     <div class="content">
                         <h2>@item.Title</h2>
                         <p>By @item.Author</p>
                         <div class="course-prices">
-                            @if (item.Discountprice > 0)
+                            @if (item.Discountprice != null)
                             {
                                 <div id="discountprice">$@item.Discountprice</div>
                             }
-                            <div id="originalprice">$@item.Originalprice</div>
+                            <div id="originalprice @(!string.IsNullOrEmpty(item.Discountprice) ? "discount-enabled" : "")">$@item.Originalprice</div>
                         </div>
                         <div class="course-footer">
                             <div><i class="fa-regular fa-clock"></i> @item.Hours hours</div>
                             <div class="course-likes">
-                                <div><i class="fa-regular fa-thumbs-up"> </i>@($"{item.LikesInProcent:P0}")</div>
-                                <div>(@($"{item.LikesInNumbers / 1000m:F1}K"))</div>
+                                <div><i class="fa-regular fa-thumbs-up"> </i>@($"{item.LikesInProcent}%")</div>
+                                <div>(@($"{item.LikesInNumbers}K"))</div>
                             </div>
                         </div>
                     </div>
