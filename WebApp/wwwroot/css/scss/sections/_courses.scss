@@ -1,11 +1,120 @@
 .courses {
-    .container {
+    width: 100%;
+    max-width: 100%;
 
-        #title {
-            margin-top: -3rem;
+    .container {
+        position: relative;
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 7rem;
+            flex-direction: row;
 
             @media(min-width: 992px) {
-                margin-top: 2rem;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+
+            #title {
+                margin-top: -15rem;
+
+                @media(min-width: 992px) {
+                    margin-top: -4rem;
+                }
+            }
+
+            .filters {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: -4rem;
+
+                @media(min-width: 992px) {
+                    justify-content: flex-end;
+                    flex-direction: row;
+                }
+
+                .input-select-group {
+                    .select {
+                        position: relative;
+                        border: 1px solid #ccc;
+                        padding: 1rem 1rem;
+                        border-radius: 5px;
+                        min-width: 18rem;
+                        position: relative;
+                    }
+
+                    .select-options {
+                        display: none;
+                        position: absolute;
+                        background-color: #fff;
+                        width: 100%;
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        z-index: 2;
+                        top: calc(100% + 5px);
+                        left: 0;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        max-height: 200px;
+                        overflow-y: auto;
+                    }
+
+
+                    .selected {
+                        background-color: #fff;
+                        cursor: pointer;
+                        width: 100px;
+                        white-space: nowrap;
+
+
+                        .arrow {
+                            position: absolute;
+                            top: 50%; /* Align the arrow vertically in the middle */
+                            right: 10px; /* Adjust the distance from the right edge */
+                            transform: translateY(-50%); /* Center the arrow vertically */
+                            font-size: 0.8em; /* Adjust the size of the arrow */
+                            cursor: pointer;
+                        }
+                    }
+
+                    .option {
+                        color: black;
+                        padding: 12px 16px;
+                        text-decoration: none;
+                        display: block;
+                    }
+
+                    .option:hover {
+                        background-color: #f4f4f4;
+                    }
+
+                    .selected:hover + .select-options {
+                        display: block;
+                    }
+                }
+
+                .input-search-group {
+                    position: relative;
+
+
+                    input {
+                        position: relative;
+                        padding-right: 5rem;
+                        text-align: left;
+                        width: 100%;
+                    }
+
+                    i {
+                        position: absolute;
+                        top: 1.4rem;
+                        right: 1rem;
+                    }
+                }
             }
         }
 
@@ -25,7 +134,7 @@
 
             .course {
                 position: relative;
-                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Adjust values as needed */
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
                 background-color: white;
                 border-radius: 25px;
 
@@ -49,6 +158,23 @@
                     height: auto;
                     border-top-left-radius: 20px;
                     border-top-right-radius: 20px;
+                }
+
+                .bookmark {
+                    position: absolute;
+                    color: black;
+                    z-index: 1;
+                    background-color: white;
+                    right:0;
+                    top:0;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 50%;
+                    margin-right: 1rem;
+                    margin-top: 1rem;
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
                 }
 
                 .content {

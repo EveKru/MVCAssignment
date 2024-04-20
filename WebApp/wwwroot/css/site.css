@@ -824,22 +824,30 @@ form span.field-validation-error {
 .account-details .container aside .profile {
   text-align: center;
 }
-.account-details .container aside .profile h5 {
-  margin-top: 1rem;
-}
 .account-details .container aside .profile img {
-  height: 5rem;
-  width: 5rem;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
 }
-.account-details .container aside nav {
+.account-details .container aside .profile .btn-circle {
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+.account-details .container aside .profile h5 {
+  margin-top: 0.5rem;
+}
+.account-details .container aside .profile p {
+  margin-top: -0.5rem;
+}
+.account-details .container nav {
   margin-top: 2rem;
   display: grid;
   gap: 0.5rem;
 }
-.account-details .container aside nav a {
+.account-details .container nav a {
   font-weight: 600;
 }
-.account-details .container aside nav .btn-gray {
+.account-details .container nav .btn-gray {
   width: 50%;
   text-align: center;
   margin: auto;
@@ -847,43 +855,43 @@ form span.field-validation-error {
   padding-bottom: 13px;
 }
 @media (min-width: 992px) {
-  .account-details .container aside nav .btn-gray {
+  .account-details .container nav .btn-gray {
     width: 100%;
   }
 }
-.account-details .container aside nav .btn-theme-s {
+.account-details .container nav .btn-theme-s {
   display: none;
 }
 @media (min-width: 992px) {
-  .account-details .container aside nav .btn-theme-s {
+  .account-details .container nav .btn-theme-s {
     display: flex;
     width: 100%;
     margin: auto;
   }
 }
-.account-details .container .content {
+.account-details .content {
   margin-bottom: 5rem;
 }
-.account-details .container .content .details-info form #text h2 {
+.account-details .content .details-info form #text h2 {
   text-align: center;
   padding-bottom: 1rem;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .details-info form #text h2 {
+  .account-details .content .details-info form #text h2 {
     text-align: left;
   }
 }
-.account-details .container .content .details-info form #text h5 {
+.account-details .content .details-info form #text h5 {
   color: #6366F1;
   padding-bottom: 1rem;
   text-align: center;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .details-info form #text h5 {
+  .account-details .content .details-info form #text h5 {
     text-align: left;
   }
 }
-.account-details .container .content .details-info .form-1 {
+.account-details .content .details-info .form-1 {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
@@ -892,56 +900,56 @@ form span.field-validation-error {
   margin: 0 auto;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .details-info .form-1 {
+  .account-details .content .details-info .form-1 {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "firstname lastname" "email phone" "bio bio";
     width: 100%;
   }
 }
-.account-details .container .content .details-info .form-1 #form-firstname {
+.account-details .content .details-info .form-1 #form-firstname {
   grid-area: firstname;
 }
-.account-details .container .content .details-info .form-1 #form-lastname {
+.account-details .content .details-info .form-1 #form-lastname {
   grid-area: lastname;
 }
-.account-details .container .content .details-info .form-1 #form-email {
+.account-details .content .details-info .form-1 #form-email {
   grid-area: email;
 }
-.account-details .container .content .details-info .form-1 #form-phone {
+.account-details .content .details-info .form-1 #form-phone {
   grid-area: phone;
 }
-.account-details .container .content .details-info .form-1 #form-bio {
+.account-details .content .details-info .form-1 #form-bio {
   grid-area: bio;
 }
-.account-details .container .content .details-info .form-1 span {
+.account-details .content .details-info .form-1 span {
   color: gray;
   font-weight: 400;
 }
-.account-details .container .content .details-info .form-1 .form-buttons {
+.account-details .content .details-info .form-1 .form-buttons {
   display: flex;
   gap: 2rem;
   padding-top: 1rem;
   justify-content: center;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .details-info .form-1 .form-buttons {
+  .account-details .content .details-info .form-1 .form-buttons {
     justify-content: left;
   }
 }
-.account-details .container .content .adress-info {
+.account-details .content .adress-info {
   margin-top: 3rem;
 }
-.account-details .container .content .adress-info h5 {
+.account-details .content .adress-info h5 {
   color: #6366F1;
   padding-bottom: 1rem;
   text-align: center;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .adress-info h5 {
+  .account-details .content .adress-info h5 {
     text-align: left;
   }
 }
-.account-details .container .content .adress-info .form-2 {
+.account-details .content .adress-info .form-2 {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
@@ -950,36 +958,36 @@ form span.field-validation-error {
   margin: 0 auto;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .adress-info .form-2 {
+  .account-details .content .adress-info .form-2 {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "adress1 adress1" "adress2 adress2" "postalcode city";
     width: 100%;
   }
 }
-.account-details .container .content .adress-info .form-2 #adress-1 {
+.account-details .content .adress-info .form-2 #adress-1 {
   grid-area: adress1;
 }
-.account-details .container .content .adress-info .form-2 #adress-2 {
+.account-details .content .adress-info .form-2 #adress-2 {
   grid-area: adress2;
 }
-.account-details .container .content .adress-info .form-2 #adress-2 span {
+.account-details .content .adress-info .form-2 #adress-2 span {
   color: gray;
   font-weight: 400;
 }
-.account-details .container .content .adress-info .form-2 #postalcode {
+.account-details .content .adress-info .form-2 #postalcode {
   grid-area: postalcode;
 }
-.account-details .container .content .adress-info .form-2 #city {
+.account-details .content .adress-info .form-2 #city {
   grid-area: city;
 }
-.account-details .container .content .adress-info .form-2 .form-buttons {
+.account-details .content .adress-info .form-2 .form-buttons {
   display: flex;
   gap: 2rem;
   padding-top: 1rem;
   justify-content: center;
 }
 @media (min-width: 992px) {
-  .account-details .container .content .adress-info .form-2 .form-buttons {
+  .account-details .content .adress-info .form-2 .form-buttons {
     justify-content: left;
   }
 }
@@ -1134,13 +1142,110 @@ form span.field-validation-error {
   }
 }
 
-.courses .container #title {
-  margin-top: -3rem;
+.courses {
+  width: 100%;
+  max-width: 100%;
+}
+.courses .container {
+  position: relative;
+}
+.courses .container .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 7rem;
+  flex-direction: row;
 }
 @media (min-width: 992px) {
-  .courses .container #title {
-    margin-top: 2rem;
+  .courses .container .header {
+    align-items: flex-start;
+    justify-content: space-between;
   }
+}
+.courses .container .header #title {
+  margin-top: -15rem;
+}
+@media (min-width: 992px) {
+  .courses .container .header #title {
+    margin-top: -4rem;
+  }
+}
+.courses .container .header .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -4rem;
+}
+@media (min-width: 992px) {
+  .courses .container .header .filters {
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+}
+.courses .container .header .filters .input-select-group .select {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  min-width: 18rem;
+  position: relative;
+}
+.courses .container .header .filters .input-select-group .select-options {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  top: calc(100% + 5px);
+  left: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.courses .container .header .filters .input-select-group .selected {
+  background-color: #fff;
+  cursor: pointer;
+  width: 100px;
+  white-space: nowrap;
+}
+.courses .container .header .filters .input-select-group .selected .arrow {
+  position: absolute;
+  top: 50%; /* Align the arrow vertically in the middle */
+  right: 10px; /* Adjust the distance from the right edge */
+  transform: translateY(-50%); /* Center the arrow vertically */
+  font-size: 0.8em; /* Adjust the size of the arrow */
+  cursor: pointer;
+}
+.courses .container .header .filters .input-select-group .option {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.courses .container .header .filters .input-select-group .option:hover {
+  background-color: #f4f4f4;
+}
+.courses .container .header .filters .input-select-group .selected:hover + .select-options {
+  display: block;
+}
+.courses .container .header .filters .input-search-group {
+  position: relative;
+}
+.courses .container .header .filters .input-search-group input {
+  position: relative;
+  padding-right: 5rem;
+  text-align: left;
+  width: 100%;
+}
+.courses .container .header .filters .input-search-group i {
+  position: absolute;
+  top: 1.4rem;
+  right: 1rem;
 }
 .courses .container .items {
   display: grid;
@@ -1160,7 +1265,7 @@ form span.field-validation-error {
 }
 .courses .container .items .course {
   position: relative;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Adjust values as needed */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   background-color: white;
   border-radius: 25px;
 }
@@ -1182,6 +1287,22 @@ form span.field-validation-error {
   height: auto;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+.courses .container .items .course .bookmark {
+  position: absolute;
+  color: black;
+  z-index: 1;
+  background-color: white;
+  right: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .courses .container .items .course .content {
   margin-left: 1rem;
@@ -1490,4 +1611,24 @@ form span.field-validation-error {
   height: auto;
   display: block;
   margin: auto;
+}
+
+#cookie-consent {
+  background-color: #EFF2FC;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+  border-top: 1px solid gray;
+}
+#cookie-consent .container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 2.5rem;
+}
+#cookie-consent .container button {
+  width: 20%;
 }

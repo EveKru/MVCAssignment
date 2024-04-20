@@ -14,186 +14,196 @@
             .profile {
                 text-align: center;
 
-                h5 {
-                    margin-top: 1rem;
+                img {
+                    height: 7rem;
+                    width: 7rem;
+                    border-radius: 50%;
                 }
 
-                img {
-                    height: 5rem;
-                    width: 5rem;
+                .btn-circle {
+                    cursor: pointer;
+                    margin-top: 0.2rem;
+                }
+
+                h5 {
+                    margin-top: 0.5rem;
+                }
+
+                p {
+                    margin-top: -0.5rem;
+                }
+            }
+        }
+
+        nav {
+            margin-top: 2rem;
+            display: grid;
+            gap: 0.5rem;
+
+            a {
+                font-weight: 600;
+            }
+
+            .btn-gray {
+                width: 50%;
+                text-align: center;
+                margin: auto;
+                padding-top: 10px;
+                padding-bottom: 13px;
+
+                @media(min-width: 992px) {
+                    width: 100%;
                 }
             }
 
-            nav {
-                margin-top: 2rem;
-                display: grid;
-                gap: 0.5rem;
+            .btn-theme-s {
+                display: none;
 
-                a {
-                    font-weight: 600;
-                }
-
-                .btn-gray {
-                    width: 50%;
-                    text-align: center;
+                @media(min-width: 992px) {
+                    display: flex;
+                    width: 100%;
                     margin: auto;
-                    padding-top: 10px;
-                    padding-bottom: 13px;
+                }
+            }
+        }
+    }
 
-                    @media(min-width: 992px) {
-                        width: 100%;
+    .content {
+        margin-bottom: 5rem;
+
+        .details-info {
+            form {
+                #text {
+
+                    h2 {
+                        text-align: center;
+                        padding-bottom: 1rem;
+
+                        @media(min-width: 992px) {
+                            text-align: left;
+                        }
+                    }
+
+                    h5 {
+                        color: $theme;
+                        padding-bottom: 1rem;
+                        text-align: center;
+
+                        @media(min-width: 992px) {
+                            text-align: left;
+                        }
                     }
                 }
+            }
 
-                .btn-theme-s {
-                    display: none;
+            .form-1 {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "phone" "bio";
+                width: 80%;
+                margin: 0 auto;
+
+                @media(min-width: 992px) {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email phone" "bio bio";
+                    width: 100%;
+                }
+
+                #form-firstname {
+                    grid-area: firstname;
+                }
+
+                #form-lastname {
+                    grid-area: lastname;
+                }
+
+                #form-email {
+                    grid-area: email;
+                }
+
+                #form-phone {
+                    grid-area: phone;
+                }
+
+                #form-bio {
+                    grid-area: bio;
+                }
+
+                span {
+                    color: gray;
+                    font-weight: 400;
+                }
+
+                .form-buttons {
+                    display: flex;
+                    gap: 2rem;
+                    padding-top: 1rem;
+                    justify-content: center;
 
                     @media(min-width: 992px) {
-                        display: flex;
-                        width: 100%;
-                        margin: auto;
+                        justify-content: left;
                     }
                 }
             }
         }
 
-        .content {
-            margin-bottom: 5rem;
+        .adress-info {
+            margin-top: 3rem;
 
-            .details-info {
-                form {
-                    #text {
+            h5 {
+                color: $theme;
+                padding-bottom: 1rem;
+                text-align: center;
 
-                        h2 {
-                            text-align: center;
-                            padding-bottom: 1rem;
+                @media(min-width: 992px) {
+                    text-align: left;
+                }
+            }
 
-                            @media(min-width: 992px) {
-                                text-align: left;
-                            }
-                        }
+            .form-2 {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: 1fr;
+                grid-template-areas: "adress1" "adress2" "postalcode" "city";
+                width: 80%;
+                margin: 0 auto;
 
-                        h5 {
-                            color: $theme;
-                            padding-bottom: 1rem;
-                            text-align: center;
-
-                            @media(min-width: 992px) {
-                                text-align: left;
-                            }
-                        }
-                    }
+                @media(min-width: 992px) {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "adress1 adress1" "adress2 adress2" "postalcode city";
+                    width: 100%;
                 }
 
-                .form-1 {
-                    display: grid;
-                    gap: 1rem;
-                    grid-template-columns: 1fr;
-                    grid-template-areas: "firstname" "lastname" "email" "phone" "bio";
-                    width: 80%;
-                    margin: 0 auto;
+                #adress-1 {
+                    grid-area: adress1;
+                }
 
-                    @media(min-width: 992px) {
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-areas: "firstname lastname" "email phone" "bio bio";
-                        width: 100%;
-                    }
-
-                    #form-firstname {
-                        grid-area: firstname;
-                    }
-
-                    #form-lastname {
-                        grid-area: lastname;
-                    }
-
-                    #form-email {
-                        grid-area: email;
-                    }
-
-                    #form-phone {
-                        grid-area: phone;
-                    }
-
-                    #form-bio {
-                        grid-area: bio;
-                    }
+                #adress-2 {
+                    grid-area: adress2;
 
                     span {
                         color: gray;
                         font-weight: 400;
                     }
-
-                    .form-buttons {
-                        display: flex;
-                        gap: 2rem;
-                        padding-top: 1rem;
-                        justify-content: center;
-
-                        @media(min-width: 992px) {
-                            justify-content: left;
-                        }
-                    }
-                }
-            }
-
-            .adress-info {
-                margin-top: 3rem;
-
-                h5 {
-                    color: $theme;
-                    padding-bottom: 1rem;
-                    text-align: center;
-
-                    @media(min-width: 992px) {
-                        text-align: left;
-                    }
                 }
 
-                .form-2 {
-                    display: grid;
-                    gap: 1rem;
-                    grid-template-columns: 1fr;
-                    grid-template-areas: "adress1" "adress2" "postalcode" "city";
-                    width: 80%;
-                    margin: 0 auto;
+                #postalcode {
+                    grid-area: postalcode;
+                }
+
+                #city {
+                    grid-area: city;
+                }
+
+                .form-buttons {
+                    display: flex;
+                    gap: 2rem;
+                    padding-top: 1rem;
+                    justify-content: center;
 
                     @media(min-width: 992px) {
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-areas: "adress1 adress1" "adress2 adress2" "postalcode city";
-                        width: 100%;
-                    }
-
-                    #adress-1 {
-                        grid-area: adress1;
-                    }
-
-                    #adress-2 {
-                        grid-area: adress2;
-
-                        span {
-                            color: gray;
-                            font-weight: 400;
-                        }
-                    }
-
-                    #postalcode {
-                        grid-area: postalcode;
-                    }
-
-                    #city {
-                        grid-area: city;
-                    }
-
-                    .form-buttons {
-                        display: flex;
-                        gap: 2rem;
-                        padding-top: 1rem;
-                        justify-content: center;
-
-                        @media(min-width: 992px) {
-                            justify-content: left;
-                        }
+                        justify-content: left;
                     }
                 }
             }

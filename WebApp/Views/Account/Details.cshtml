@@ -8,7 +8,14 @@
     <div class="container">
         <aside>
             <div class="profile">
-                <img src="@Model.ProfileInfoModel.ProfileImage" alt="" />
+                <div class="error-message">
+                    @Html.Raw(ViewData.ModelState["ImageError"]?.Errors.First().ErrorMessage)
+                </div>
+                <img id="picture" src="~/uploads/@Model.ProfileInfoModel.ProfileImage" alt="" />
+                <form enctype="multipart/form-data" method="post" asp-action="UploadImage" asp-controller="Account">
+                    <input id="fileUploader" type="file" name="file" hidden />
+                    <label for="fileUploader" class="btn-circle"><i class="fa-solid fa-arrows-rotate"></i></label>
+                </form>
                 <h5>@($"{Model.ProfileInfoModel.FirstName} {Model.ProfileInfoModel.LastName}")</h5>
                 <p>@Model.ProfileInfoModel.Email</p>
             </div>
